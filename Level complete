@@ -1,0 +1,12 @@
+#WorldComplete.gd
+extends Area2D
+
+export(String, FILE, "*.tscn") var world_scene
+
+# warning-ignore:unused_argument
+func _physics_process(delta):
+# warning-ignore:unused_variable
+	var bodies = get_overlapping_bodies()
+	for body in bodies: 
+		if body.name == "Player":
+			get_tree().change_scene(world_scene)
